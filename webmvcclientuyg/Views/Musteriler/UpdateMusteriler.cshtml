@@ -1,0 +1,36 @@
+﻿@model Musteriler
+@{
+    Layout = "_Layout"; ViewBag.Title = "Update Musteriler";
+}
+
+<h2>Update Müşteriler <a asp-action="Index" class="btn btn-sm btn-secondary">Geri</a></h2>
+<form method="post" asp-action="UpdateMusteriler">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Id"></label>
+        <input class="form-control" asp-for="Id" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="AdSoyad"></label>
+        <input class="form-control" asp-for="AdSoyad" />
+        <span asp-validation-for="AdSoyad" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adres"></label>
+        <input class="form-control" asp-for="Adres" />
+        <span asp-validation-for="Adres" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Telefon"></label>
+        <input class="form-control" asp-for="Telefon" />
+        <span asp-validation-for="Telefon" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Update müşteriler</button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Musteriler>
+@{
+    Layout = "_Layout"; ViewBag.Title = "All Musteriler";
+}
+
+<h2>Customers</h2>
+<a asp-action="AddMusteriler" class="btn btn-sm btn-primary">Müşteri Ekle</a>
+<a asp-action="GetMusteriler" class="btn btn-sm btn-secondary">Müşteri Arama</a>
+
+<table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adsoyad</th>
+            <th>Adres</th>
+            <th>Telefon</th>
+            <th>E-Mail</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var musteriler in Model)
+        {
+            <tr>
+                <td>@musteriler.Id</td>
+                <td>@musteriler.AdSoyad</td>
+                <td>@musteriler.Adres</td>
+                <td>@musteriler.Telefon</td>
+                <td>@musteriler.Email</td>
+                <td>
+                    <a asp-action="UpdateMusteriler" asp-route-id="@musteriler.Id">
+                        <img src="/icon/edit.png" />
+                    </a>
+                </td>
+                <td>
+                    <form asp-action="DeleteMusteriler" method="post">
+                        <input type="hidden" value="@musteriler.Id" name="MusteriId" />
+                        <input type="image" src="/icon/close.png" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

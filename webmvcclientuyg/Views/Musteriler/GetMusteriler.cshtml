@@ -1,0 +1,46 @@
+﻿@model Musteriler
+@{
+    Layout = "_Layout"; ViewBag.Title = "MÜŞTERİ ARAMA";
+}
+
+<h2>ARAMA <a asp-action="Index" class="btn btn-sm btn-primary">GERİ</a></h2>
+<form method="post">
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <input class="form-control" name="id" />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">MÜŞTERİ ARAMA</button>
+    </div>
+</form>
+
+@if (Model != null && Model.Id != 0)
+{
+    <h2>Müşteriler</h2>
+    <table id="myTable" class="table table-sm table-striped table-bordered m-2 table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Adsoyad</th>
+                <th>Adres</th>
+                <th>Telefon</th>
+                <th>EMail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.AdSoyad</td>
+                <td>@Model.Adres</td>
+                <td>@Model.Telefon</td>
+                <td>@Model.Email</td>
+            </tr>
+        </tbody>
+    </table>
+}
+else if (Model != null && Model.Id == 0)
+{
+    <div class="text-center">
+        <h1>Arama sayfası</h1>
+    </div>
+}
